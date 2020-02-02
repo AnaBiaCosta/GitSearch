@@ -1,26 +1,58 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import { Main } from './App.style'
+import Navbar from './components/Navbar'
+import SearchBar from './components/SearchBar'
+import UserCard from './components/UserCard'
+import Footer from './components/Footer'
 
-function App() {
+const App = ( ) => {
+  const [user, setUser ] = useState({
+    name: 'User Name',
+    src: '../user.png',
+    bio: 'A short description about the user',
+    localization: 'undefined',
+    repos: 0,
+    followers: 0,
+    following: 0
+  })
+
+  useEffect(() => {
+    fetch('https://api.github.com/users/AnaBiaCosta')
+      .then((res) => {
+        return res.json()
+      })
+      .then((res) => {
+        setUser({
+          name: res.login,
+          src: res.avatar_url,
+          bio: res.bio,
+          localization: res.location,
+          repos: res.public_repos,
+          followers: res.followers,
+          following: res.following
+        })
+      })
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <Navbar />
+    <Main>
+      <SearchBar />
+      <UserCard 
+        name={user.name}
+        src={user.src}
+        bio={user.bio}
+        localization={user.localization}
+        repos={user.repos}
+        followers={user.followers}
+        following={user.following}
+      />
+    </Main>
+    <Footer />
+  </>
+
+  )
 }
 
 export default App;
