@@ -23,7 +23,7 @@ const search = (value, setUser ) => {
       })
 }
 
-const App = ( ) => {
+const App = () => {
   const [user, setUser ] = useState({
     name: 'User Name',
     src: '../user.png',
@@ -32,12 +32,12 @@ const App = ( ) => {
     repos: 0,
     followers: 0,
     following: 0
-  })
+})
 
-  const [value, setValue] = useState(null)
+const [value, setValue] = useState(null)
  
-  return (
-    <>
+return (
+  <>
     <Navbar />
     <Main>
       <PrincipalTitle>
@@ -61,7 +61,6 @@ const App = ( ) => {
     </Main>
     <Footer />
   </>
-
   )
 }
 
