@@ -1,4 +1,4 @@
-#GitSearch - A small user search application using a GitHub API made with React.js
+## GitSearch - A small user search application using a GitHub API made with React.js
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
