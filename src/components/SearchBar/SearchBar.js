@@ -8,8 +8,8 @@ const SearchBar = () => (
     </PrincipalTitle>
 
     <Container>
-      <Input />
-      <Button><img src='../search.png'/></Button>
+      <Input onKeyUp={({target}) => target.value}/>
+      <Button onClick={() => console.log('vai retornar uma função')}><img src='../search.png'/></Button>
     </Container>
   </>
 )
