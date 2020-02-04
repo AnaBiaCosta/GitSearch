@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Main, Container, PrincipalTitle, Title, Input, Button } from './App.style'
 import Navbar from './components/Navbar'
-// import SearchBar from './components/SearchBar'
 import UserCard from './components/UserCard'
 import Footer from './components/Footer'
 
